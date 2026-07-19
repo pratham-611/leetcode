@@ -11,26 +11,18 @@
  */
 class Solution {
 public:
-    void insertbst(TreeNode* &root , int val){
-        if(root == NULL) {root = new TreeNode(val);
-            return ;
-        }
+    TreeNode* insertbst(TreeNode* &root , int val){
+        if(root == NULL) return new TreeNode(val);
 
-        if(root ->left == NULL && root -> val > val){
-            root->left = new TreeNode(val);
-            return ;
-        }
-        if(root ->right == NULL && root -> val < val){
-            root->right = new TreeNode(val);
-            return ;
-        } 
+        if(root->val < val) 
+        root->right = insertbst(root->right , val);
 
-        if(root->val < val) insertbst(root->right , val);
-        else insertbst(root->left , val);
+        else 
+        root->left = insertbst(root->left , val);
+        return root;
     }
 
     TreeNode* insertIntoBST(TreeNode* root, int val) {
-        insertbst(root,val);
-        return root;
+        return insertbst(root,val);
     }
 };
