@@ -31,10 +31,11 @@ public:
 
             if(n2>n1) tempb = tempb -> next;
         }
-        while(tempa != tempb){
+        while(tempa || tempb){
+            if(tempa == tempb ) return tempb;
             tempa = tempa ->next;
             tempb = tempb ->next;
         }
-        return tempa;
+        return NULL;
     }
 };
