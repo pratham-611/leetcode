@@ -6,7 +6,6 @@ public:
 
         int product = 1;
 
-        // Left to right
         for (int i = 0; i < n; i++) {
             product *= nums[i];
             ans = max(ans, product);
@@ -17,7 +16,6 @@ public:
 
         product = 1;
 
-        // Right to left
         for (int i = n - 1; i >= 0; i--) {
             product *= nums[i];
             ans = max(ans, product);
